@@ -81,35 +81,132 @@
           </ul>
         </div>
       </header>
-      <div class="container">
-        <div class="catalog">
-          <div class="catalog-header">
-            <div class="container">
-              <div class="filter-header">
-                <h2>Фильтр:</h2>
-              </div>
-              <div class="catalog-sort">
-                <h2>сортировка:</h2>
-                <ul class="catalog-sort-links">
-                  <li class="catalog-sort-item current">
-                    <a href="#">По цене</a>
-                  </li>
-                  <li class="catalog-sort-item">
-                    <a href="#">По типу</a>
-                  </li>
-                  <li class="catalog-sort-item">
-                    <a href="#">По популярности</a>
-                  </li>
-                </ul>
-                <ul class="catalog-sort-buttons">
-                  <li><a href="#" class="arrow sort-up">по возрастанию</a></li>
-                  <li><a href="#" class="arrow sort-down">по убыванию</a></li>
-                </ul>
-              </div>
+      <!-- !CATALOG -->
+      <section class="catalog">
+        <h2 class="visually-hidden">Список товаров с фильтрами</h2>
+        <div class="container">
+          <!-- *catalog-header -->
+          <section class="catalog-header">
+            <div class="catalog-header-filter">
+              <h3>Фильтр:</h3>
             </div>
-          </div>
+            <div class="catalog-header-sort">
+              <h3>сортировка:</h3>
+              <select class="select-control" aria-label="Сортировка">
+                <option value="popular">Популярные</option>
+                <option value="cheap">Дешёвые</option>
+                <option value="expensive">Дорогие</option>
+              </select>
+              <ul class="catalog-header-sort-btns">
+                <li><a class="arrow sort-up" href="#">по возрастанию</a></li>
+                <li><a class="arrow sort-down" href="#">по убыванию</a></li>
+              </ul>
+            </div>
+          </section>
+          <form
+            class="catalog-filter"
+            action="https://echo.htmlacademy.ru/"
+            method="get"
+          >
+            <fieldset class="catalog-filter-group">
+              <legend class="catalog-filter-title">Стоимость</legend>
+              <div class="catalog-filter-price-range">
+                <div class="price-controls">
+                  <div class="scale">
+                    <div class="bar"></div>
+                  </div>
+                  <div class="range-toggle range-toggle-min"></div>
+                  <div class="range-toggle range-toggle-max"></div>
+                </div>
+                <label class="price-label" for="catalog-filter-min-price">
+                  от
+                </label>
+                <input
+                  class="price-value"
+                  type="text"
+                  name="min-price"
+                  id="catalog-filter-min-price"
+                  value="0"
+                />
+                <label class="price-label" for="catalog-filter-max-price">
+                  до
+                </label>
+                <input
+                  class="price-value"
+                  type="text"
+                  name="max-price"
+                  id="catalog-filter-max-price"
+                  value="5000"
+                />
+              </div>
+            </fieldset>
+            <fieldset class="catalog-filter-group">
+              <legend class="catalog-filter-title">Цвет</legend>
+              <ul class="catalog-filter-list">
+                <li class="catalog-filter-item">
+                  <label class="control" for="black">Черный</label
+                  ><input
+                    class="control-input"
+                    type="checkbox"
+                    name="black"
+                    checked
+                  />
+                </li>
+                <li class="catalog-filter-item">
+                  <label class="control" for="white">Белый</label
+                  ><input
+                    class="control-input"
+                    type="checkbox"
+                    name="white"
+                    checked
+                  />
+                </li>
+                <li class="catalog-filter-item">
+                  <label class="control" for="blue">Синий</label
+                  ><input class="control-input" type="checkbox" name="blue" />
+                </li>
+                <li class="catalog-filter-item">
+                  <label class="control" for="red">Красный</label
+                  ><input class="control-input" type="checkbox" name="red" />
+                </li>
+                <li class="catalog-filter-item">
+                  <label class="control" for="pink">Розовый</label
+                  ><input class="control-input" type="checkbox" name="pink" />
+                </li>
+              </ul>
+            </fieldset>
+            <fieldset class="catalog-filter-group">
+              <legend class="catalog-filter-title">Bluetooth</legend>
+              <ul class="catalog-filter-list">
+                <li class="catalog-filter-item">
+                  <label for="presence-of-bluetooth" class="control">
+                    Есть
+                  </label>
+                  <input
+                    class="control-input"
+                    type="radio"
+                    name="presence-of-bluetooth"
+                    value="Yes"
+                    checked
+                  />
+                </li>
+                <li class="catalog-filter-item">
+                  <label for="presence-of-bluetooth" class="control">
+                    Нет
+                  </label>
+                  <input
+                    class="control-input"
+                    type="radio"
+                    name="presence-of-bluetooth"
+                    value="No"
+                  />
+                </li>
+              </ul>
+            </fieldset>
+            <button class="btn" type="submit">Показать</button>
+          </form>
         </div>
-      </div>
+      </section>
     </main>
     <!-- !FOOTER -->
     <footer class="page-footer">
