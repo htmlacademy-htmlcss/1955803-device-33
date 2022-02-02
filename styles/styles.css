@@ -1195,6 +1195,19 @@ img {
 }
 .contacts-phone {
   color: var(--basic-dark);
+  font-size: 16px;
+  line-height: 20px;
+  transition: color 50ms ease-in, opacity 50ms ease-in;
+}
+.contacts-phone:hover {
+  color: var(--additional-yellow-hover);
+}
+.contacts-phone:focus-visible {
+  outline: 2px solid var(--additional-violet);
+}
+.footer-nav-item:active,
+.contacts-phone:active {
+  opacity: 0.3;
 }
 .contacts-time-work {
 }
@@ -1290,6 +1303,7 @@ img {
   align-self: flex-start;
 }
 .footer-nav-list {
+  margin: 0px;
 }
 
 .footer-nav-item {
@@ -1304,17 +1318,13 @@ img {
 .footer-nav-item:not(:last-child) {
   padding-right: 30px;
 }
-
+.footer-nav-item:active {
+  opacity: 0.3;
+}
 .footer-address,
 .footer-nav-link,
-.footer-address .contacts-phone {
+.footer-contacts-phone {
   color: var(--basic-white);
-}
-
-.contacts-phone {
-  font-size: 16px;
-  line-height: 20px;
-  transition: color 50ms ease-in, opacity 50ms ease-in;
 }
 
 .footer-nav-item:hover .footer-nav-link {
@@ -1323,15 +1333,8 @@ img {
   opacity: 1;
 }
 
-.contacts-phone:hover {
-  color: var(--additional-yellow-hover);
-}
-.footer-nav-item:active,
-.contacts-phone:active {
-  opacity: 0.3;
-}
 .footer-nav-item:focus-visible,
-.contacts-phone:focus-visible,
+.footer-contacts-:focus-visible,
 .footer-social-link:focus-visible,
 .htmlacademy-link:focus-visible {
   outline: 2px solid var(--additional-violet);
@@ -1383,7 +1386,7 @@ img {
 
 .htmlacademy-link {
   display: flex;
-  align-items: flex-end;
+  align-self: flex-start;
 }
 .htmlacademy-link:hover svg path {
   transition: fill 150ms ease-in;
