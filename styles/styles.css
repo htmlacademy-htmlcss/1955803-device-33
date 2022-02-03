@@ -1195,8 +1195,6 @@ img {
 }
 .contacts-phone {
   color: var(--basic-dark);
-  font-size: 16px;
-  line-height: 20px;
   transition: color 50ms ease-in, opacity 50ms ease-in;
 }
 .contacts-phone:hover {
@@ -1326,7 +1324,10 @@ img {
 .footer-contacts-phone {
   color: var(--basic-white);
 }
-
+.footer-contacts-phone {
+  font-size: 16px;
+  line-height: 20px;
+}
 .footer-nav-item:hover .footer-nav-link {
   border-bottom: 2px solid var(--additional-yellow-hover);
   color: var(--additional-yellow-hover);
@@ -1367,7 +1368,18 @@ img {
   width: 40px;
   height: 40px;
 }
-
+.twitter-bg,
+.instagram-bg,
+.facebook-bg {
+  fill: var(--basic-white);
+  fill-opacity: 0.3;
+}
+.twitter-logo,
+.instagram-logo,
+.instagram-point,
+.facebook-logo {
+  fill: var(--basic-dark);
+}
 .footer-social-item:not(:last-child) {
   margin-right: 15px;
 }
@@ -1375,12 +1387,16 @@ img {
 .footer-social-item:focus-visible {
   outline: 2px solid var(--additional-violet);
 }
-.footer-social-link:hover svg circle {
+.footer-social-link:hover .twitter-bg,
+.footer-social-link:hover .instagram-bg,
+.footer-social-link:hover .facebook-bg {
   transition: fill 150ms ease-in, fill-opacity 150ms ease-in;
   fill: var(--additional-yellow-hover);
   fill-opacity: 1;
 }
-.footer-social-link:active svg path {
+.footer-social-link:active .twitter-logo,
+.footer-social-link:active .instagram-point,
+.footer-social-link:active .instagram-logo {
   opacity: 0.3;
 }
 
@@ -1388,11 +1404,14 @@ img {
   display: flex;
   align-self: flex-start;
 }
-.htmlacademy-link:hover svg path {
+.htmlacademy-link svg {
+  fill: var(--additional-yellow-hover);
+}
+.htmlacademy-link:hover svg {
   transition: fill 150ms ease-in;
   fill: var(--basic-white);
 }
-.htmlacademy-link:active svg path {
+.htmlacademy-link:active svg {
   transition: opacity 150ms ease-in;
   opacity: 0.3;
 }
