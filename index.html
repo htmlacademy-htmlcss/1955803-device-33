@@ -15,14 +15,16 @@
     <div class="container">
       <header class="page-header">
         <div class="page-header-wrap">
-          <a class="page-header-logo">
-            <img
-              src="images/logo-header.svg"
-              width="145"
-              height="36"
-              alt="Логотип device."
-            />
-          </a>
+          <div class="page-header-logo">
+            <a class="logo-link">
+              <img
+                src="images/logo-header.svg"
+                width="145"
+                height="36"
+                alt="Логотип device."
+              />
+            </a>
+          </div>
           <div class="user-nav">
             <form
               class="form-search"
@@ -66,17 +68,10 @@
           <nav class="main-nav">
             <ul class="main-nav-list">
               <li class="main-nav-item main-nav-catalog-toggler">
-                <input
-                  class="catalog-toggler-btn"
-                  type="checkbox"
-                  name="toggler-btn"
-                  id="toggler-btn"
-                />
-                <label class="catalog-toggler-label" for="toggler-btn">
+                <button class="catalog-toggler-btn" type="button">
                   Каталог товаров
                   <span class="catalog-toggler-icon"></span>
-                </label>
-
+                </button>
                 <div class="catalog-toggler-nav">
                   <ul class="nav-catalog-list nav-catalog-list-monopods">
                     <li class="nav-catalog-item">
@@ -129,23 +124,21 @@
         <section class="preview">
           <h2 class="visually-hidden">Превью устройства</h2>
           <div class="preview-wrap">
-            <div class="preview-column">
-              <button class="slider-btn-prev">
-                <span class="visually-hidden">Предыдущий</span>
-              </button>
-              <button class="slider-btn-next">
-                <span class="visually-hidden">Следующий</span>
-              </button>
-            </div>
-            <div class="preview-column">
-              <div class="slider-counter">
-                <span class="slider-counter-text">01</span>
+            <div class="preview-controls">
+              <div class="slider-btn-control">
+                <button class="slider-btn-prev">
+                  <span class="visually-hidden">Предыдущий</span>
+                </button>
+                <button class="slider-btn-next">
+                  <span class="visually-hidden">Следующий</span>
+                </button>
               </div>
-              <div class="slider-row-control">
+              <div class="slider-counter-control">
+                <span class="slider-counter">01</span>
                 <ul class="slider-content-pagination">
                   <li class="slider-pagination-item">
                     <button
-                      class="slider-pagination-btn slider-pagination-btn-current"
+                      class="slider-pagination-btn slider-pagination-btn--current"
                       type="button"
                     >
                       <span class="visually-hidden">1 фото</span>
@@ -163,7 +156,9 @@
                   </li>
                 </ul>
               </div>
-              <div class="slide slide-show">
+            </div>
+            <div class="wrap-slide">
+              <div class="slide slide--show">
                 <div class="slide-img">
                   <img
                     src="images/preview/slider-1.png"
@@ -200,6 +195,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="slide">
                 <div class="slide-img">
                   <img
@@ -226,6 +222,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="slide">
                 <div class="slide-img">
                   <img
@@ -495,12 +492,14 @@
     <footer class="page-footer">
       <div class="container">
         <div class="footer-logo">
-          <img
-            src="images/logo-footer.svg"
-            width="145"
-            height="36"
-            alt="Логотип device."
-          />
+          <a class="logo-link" href="index.html">
+            <img
+              src="images/logo-footer.svg"
+              width="145"
+              height="36"
+              alt="Логотип device."
+            />
+          </a>
         </div>
         <div class="footer-row-top">
           <address>
@@ -567,10 +566,6 @@
                     href="images/icon/footer/instagram.svg#instagram-bg"
                   />
                   <use
-                    class="instagram-point"
-                    href="images/icon/footer/instagram.svg#instagram-point"
-                  />
-                  <use
                     class="instagram-logo"
                     href="images/icon/footer/instagram.svg#instagram-logo"
                   />
@@ -606,5 +601,6 @@
         </section>
       </div>
     </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
