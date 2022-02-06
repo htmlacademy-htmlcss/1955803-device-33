@@ -1,12 +1,3 @@
-// SLIDER
-let btnSliderPrev = document.querySelector(".slider-btn-prev");
-// let btnSliderNext = document.querySelector(".slider-btn-next");
-
-// let btnPagination = document.querySelectorAll(".slider-pagination-btn");
-// let btnPaginationCurrent = document.querySelector(".slider-pagination-btn--current");
-
-let wrapSlide = document.querySelector(".wrap-slide");
-
 
 // BTN CATALOG TOGGLE
 let btnToggleCatalog = document.querySelector(".catalog-toggler-btn");
@@ -18,6 +9,13 @@ function clickBtnCatalog(evt){
   btnToggleCatalog.classList.toggle("active");
 }
 
+// SLIDER
+// let btnSliderPrev = document.querySelector(".slider-btn-prev");
+// let wrapSlide = document.querySelector(".wrap-slide");
+// let btnSliderNext = document.querySelector(".slider-btn-next");
+
+// let btnPagination = document.querySelectorAll(".slider-pagination-btn");
+// let btnPaginationCurrent = document.querySelector(".slider-pagination-btn--current");
 // SLIDER BTN ACTION
 /*
 btnSliderPrev.addEventListener("click", elementSlides);
