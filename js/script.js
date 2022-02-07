@@ -10,33 +10,62 @@ function clickBtnCatalog(evt){
 }
 
 // SLIDER
-// let btnSliderPrev = document.querySelector(".slider-btn-prev");
-// let wrapSlide = document.querySelector(".wrap-slide");
-// let btnSliderNext = document.querySelector(".slider-btn-next");
+let btnSliderPrev = document.querySelector(".slider-btn-prev");
+let btnSliderNext = document.querySelector(".slider-btn-next");
+let slides = document.querySelectorAll(".slide");
+let sliderCounter = document.querySelector(".slider-counter");
+let btnSliderPagination = document.querySelectorAll(".slider-pagination-btn");
 
-// let btnPagination = document.querySelectorAll(".slider-pagination-btn");
-// let btnPaginationCurrent = document.querySelector(".slider-pagination-btn--current");
-// SLIDER BTN ACTION
-/*
-btnSliderPrev.addEventListener("click", elementSlides);
+/* Install the default slide and btns index */
+let slideIndex = 1;
+showSlides(slideIndex);
 
-
-function slids(){
-  let slides = wrapSlide.children;
-  let slideAll =[];
-  for(let i=0;i<slides.length;i++){
-    slideAll.push(slides[i]);
-}
-// console.log(slideAll);
-return slideAll;
+btnSliderNext.addEventListener("click", nextSlide);
+/* Increase the index on 1 - show the following slide*/
+function nextSlide() {
+    showSlides(slideIndex += 1);
+     sliderCounter.innerText = "0" + slideIndex;
+     showBtn();
 }
 
+btnSliderPrev.addEventListener("click", previousSlide);
+/*Reduces index on 1 - show the previous slide*/
+function previousSlide() {
+    showSlides(slideIndex -= 1);
+     sliderCounter.innerText = "0" + slideIndex;
+     showBtn();
+}
 
-function elementSlides(){
-  let allSlide = slids();
-  for(let i=0;i<allSlide.length;i++){
-  console.log(allSlide[i])
 
+/* Swipe slides function*/
+function showSlides(n) {
+
+  if (n > slides.length) {
+    slideIndex = 1;
   }
+
+  if (n < 1) {
+      slideIndex = slides.length;
+  }
+
+  for (let slide of slides) {
+      slide.style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "flex";
 }
-*/
+/* Swipe btns function*/
+function showBtn(n) {
+
+  if (n > btnSliderPagination.length) {
+    slideIndex = 1;
+  }
+
+  if (n < 1) {
+      slideIndex = btnSliderPagination.length;
+  }
+  for (let btn of btnSliderPagination) {
+    btn.style.backgroundColor = "transparent";
+}
+btnSliderPagination[slideIndex - 1].style.backgroundColor = "var(--basic-black)";
+
+}
