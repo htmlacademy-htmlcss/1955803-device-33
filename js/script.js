@@ -17,55 +17,43 @@ let sliderCounter = document.querySelector(".slider-counter");
 let btnSliderPagination = document.querySelectorAll(".slider-pagination-btn");
 
 /* Install the default slide and btns index */
-let slideIndex = 1;
+let slideIndex = 0;
 showSlides(slideIndex);
 
 btnSliderNext.addEventListener("click", nextSlide);
 /* Increase the index on 1 - show the following slide*/
 function nextSlide() {
     showSlides(slideIndex += 1);
-     sliderCounter.innerText = "0" + slideIndex;
-     showBtn();
+     sliderCounter.innerText = "0" + (slideIndex +1);
 }
 
 btnSliderPrev.addEventListener("click", previousSlide);
 /*Reduces index on 1 - show the previous slide*/
 function previousSlide() {
     showSlides(slideIndex -= 1);
-     sliderCounter.innerText = "0" + slideIndex;
-     showBtn();
+     sliderCounter.innerText = "0" + (slideIndex +1);
 }
-
 
 /* Swipe slides function*/
 function showSlides(n) {
 
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-
-  if (n < 1) {
-      slideIndex = slides.length;
-  }
+  slideIndex = (n + slides.length) % slides.length;
 
   for (let slide of slides) {
-      slide.style.display = "none";
+      slide.classList.remove("slide--show");
   }
-  slides[slideIndex - 1].style.display = "flex";
-}
-/* Swipe btns function*/
-function showBtn(n) {
+  slides[slideIndex].classList.add("slide--show");
 
-  if (n > btnSliderPagination.length) {
-    slideIndex = 1;
-  }
-
-  if (n < 1) {
-      slideIndex = btnSliderPagination.length;
-  }
   for (let btn of btnSliderPagination) {
-    btn.style.backgroundColor = "transparent";
+    btn.classList.remove("slider-pagination-btn--current");
+  }
+  btnSliderPagination[slideIndex].classList.add("slider-pagination-btn--current");
 }
-btnSliderPagination[slideIndex - 1].style.backgroundColor = "var(--basic-black)";
 
-}
+/* Swipe btns*/
+btnSliderPagination.forEach((element, index) => {
+  element.addEventListener("click", () => {
+     showSlides(index);
+      sliderCounter.innerText = "0" + (slideIndex +1);
+    });
+ })
