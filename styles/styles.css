@@ -37,9 +37,11 @@
   --basic-dark: #444444;
   --basic-light-gray: #ebebeb;
 
+  --alfa9-light-gray: rgba(240, 240, 240, 0.9);
   --alfa5-light-gray: rgba(235, 235, 235, 0.5);
   --alfa3-gray: rgba(68, 68, 68, 0.3);
   --alfa1-gray: rgba(68, 68, 68, 0.1);
+  --alfa1-black: rgba(0, 0, 0, 0.1);
   --alfa2-black: rgba(0, 0, 0, 0.2);
   --alfa3-black: rgba(0, 0, 0, 0.3);
   --alfa5-black: rgba(0, 0, 0, 0.5);
@@ -75,6 +77,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -87,7 +90,9 @@ body {
   background-color: var(--basic-white);
   color: var(--basic-dark);
 }
-
+body.lock {
+  overflow: hidden;
+}
 img {
   max-width: 100%;
   object-fit: contain;
@@ -1448,6 +1453,7 @@ img {
   align-items: center;
   margin: 70px 0px;
   background-color: var(--basic-light);
+  cursor: pointer;
 }
 .delivery:hover .delivery-icon {
   background-color: var(--additional-yellow-hover);
@@ -1817,4 +1823,251 @@ img {
 .htmlacademy-link:active path {
   transition: opacity 150ms ease-in;
   opacity: 0.3;
+}
+
+/*!=================-MODAL-WINDOW-=================!*/
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--alfa9-light-gray);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal.open .modal-content {
+  opacity: 1;
+  transform: translate(0px);
+}
+.modal-body {
+  display: flex;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  width: 920px;
+  background-color: var(--basic-white);
+  border: 10px solid var(--basic-black);
+  box-shadow: 0px 10px 0px var(--alfa1-black);
+  padding: 72px 80px;
+  opacity: 0;
+  transform: translate(0px, -100%);
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 42px;
+  justify-content: space-between;
+}
+.modal-title {
+  margin: 0px;
+}
+.modal-btn-close {
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+.modal-btn-close::before,
+.modal-btn-close::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--basic-black);
+}
+.modal-btn-close::after {
+  transform: translateY(-3px) rotate(-45deg);
+}
+.modal-btn-close::before {
+  transform: rotate(45deg);
+}
+.modal-btn-close:hover {
+  opacity: 0.6;
+}
+.modal-btn-close:active {
+  opacity: 0.3;
+}
+.modal-btn-close:focus-visible {
+  outline: 2px solid var(--additional-violet);
+}
+.modal-form {
+}
+.modal-column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
+}
+.modal-column-product {
+  flex: 1 0 71%;
+}
+.modal-column:not(:last-child) {
+  margin-right: 40px;
+}
+.modal-label {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: var(--basic-black);
+  margin-bottom: 14px;
+}
+.modal-input {
+  padding: 20px;
+  outline: none;
+  border: none;
+  background-color: var(--basic-light);
+}
+.modal-input-number {
+  appearance: textfield;
+  pointer-events: none;
+}
+.modal-input-number::-webkit-outer-spin-button,
+.modal-input-number::-webkit-inner-spin-button {
+  appearance: none;
+}
+.modal-input[id="number-product"] {
+  width: 60px;
+}
+.modal-input[id="user-email"]:focus:invalid {
+  outline: 2px solid var(--status-error);
+}
+.modal-input[id="user-email"]:focus:invalid ~ .email-invalid {
+  opacity: 1;
+}
+.modal-input[id="user-name"]:focus:invalid ~ .name-invalid {
+  opacity: 1;
+}
+.modal-input::placeholder {
+  font-size: 16px;
+  line-height: 20px;
+  opacity: 0.3;
+  color: var(--basic-black);
+}
+.modal-input[id="user-email"] ~ .modal-input-icon,
+.modal-input[id="user-name"] ~ .modal-input-icon {
+  position: absolute;
+  top: 50%;
+  right: 21px;
+  opacity: 0.3;
+}
+.modal-input[id="user-email"] ~ .modal-input-icon {
+  width: 15px;
+  height: 12px;
+  background: url(../images/icon/header/email.svg) no-repeat center;
+}
+
+.modal-input[id="user-name"] ~ .modal-input-icon {
+  width: 13px;
+  height: 12px;
+  background: url(../images/icon/header/user.svg) no-repeat center;
+}
+.value-invalid {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0px;
+  opacity: 0;
+}
+.name-invalid {
+  color: var(--basic-black);
+}
+.email-invalid {
+  color: var(--status-error);
+}
+.number-product {
+}
+.number-product-row {
+  display: flex;
+  position: relative;
+}
+.number-product-info {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--additional-yellow) url(../images/icon/delivery/info.svg)
+    no-repeat center;
+  margin-left: 8px;
+}
+.number-product-info:hover + .number-product-info-text {
+  display: block;
+}
+.number-product-info-text {
+  position: absolute;
+  display: none;
+  width: 200px;
+  padding: 19px 17px 19px 19px;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0px;
+  background-color: var(--basic-black);
+  color: var(--basic-white);
+  top: 35px;
+  z-index: 5;
+}
+.number-product-info-text::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: -5px;
+  right: 60px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 7px 6px 7px;
+  border-color: transparent transparent var(--basic-black) transparent;
+}
+
+.number-product-minus,
+.number-product-plus {
+  outline: none;
+  border: none;
+  background-color: var(--basic-light);
+  padding: 29px 22px;
+  cursor: pointer;
+}
+.number-product-minus::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 16px;
+  background-color: var(--basic-black);
+}
+.number-product-plus::before,
+.number-product-plus::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 16px;
+  background-color: var(--basic-black);
+}
+.number-product-plus::after {
+  transform: translateY(-2px) rotate(90deg);
+}
+.number-product-minus:hover::before,
+.number-product-plus:hover::after,
+.number-product-plus:hover::before {
+  opacity: 0.6;
+}
+.number-product-minus:active::before,
+.number-product-plus:active::after,
+.number-product-plus:active::before {
+  opacity: 0.3;
+}
+.modal-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }

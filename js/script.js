@@ -103,3 +103,48 @@ serviceBtn.forEach((element, index) => {
     showService(index);
     });
  })
+
+ // POPUP
+ const btnDelivery = document.querySelector(".delivery");
+ const popup = document.querySelector(".modal");
+ const popupClose = document.querySelector(".modal-btn-close");
+ const body = document.querySelector("body");
+
+ btnDelivery.addEventListener("click",togglePopup);
+ popupClose.addEventListener("click",togglePopup);
+
+ function togglePopup(){
+  popup.classList.toggle("open");
+  body.classList.toggle("lock");
+ }
+ popup.addEventListener("click", function(evt){
+  if (!evt.target.closest(".modal-content")){
+    body.classList.toggle("lock");
+   popup.classList.toggle("open");
+ }});
+
+  // POPUP COUNTER
+    const quantityMinus = document.querySelector(".number-product-minus");
+    const quantityPlus = document.querySelector(".number-product-plus");
+    const quantityNum = document.querySelector(".modal-input-number");
+
+    let number = 0;
+
+    quantityPlus.addEventListener("click", valuePlus);
+    quantityMinus.addEventListener("click", valueMinus);
+    function valuePlus(){
+      // limit the quantity of goods
+      if (number <= 4) {
+          number++;
+          quantityNum.value = number;
+      }
+  }
+
+    function valueMinus()  {
+       if (number >= 2) {
+         number--;
+         quantityNum.value = number;
+      }
+  };
+
+
