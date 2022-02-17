@@ -1026,13 +1026,13 @@ img {
   height: 60px;
   background: url(../images/icon/product/new.svg) no-repeat center;
 }
-.product-card-link:hover .product-card-btn-more {
+.product-card:hover .product-card-btn-more {
   display: block;
 }
-.product-card-link:hover .product-card-content {
+.product-card:hover .product-card-content {
   opacity: 0.6;
 }
-.product-card-link:active .product-card-content {
+.product-card:active .product-card-content {
   opacity: 0.3;
 }
 
