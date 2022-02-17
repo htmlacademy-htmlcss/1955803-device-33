@@ -1055,7 +1055,7 @@ img {
 .product-card-link.product-card-new:active img {
   opacity: 0.5;
 }
-.product-card-link:active .product-card-btn-more::after {
+.product-card-link:active ~ .product-card-btn-more::after {
   background-color: var(--additional-yellow-hover);
 }
 .product-card-content {
