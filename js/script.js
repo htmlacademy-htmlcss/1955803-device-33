@@ -141,7 +141,7 @@ serviceBtn.forEach((element, index) => {
   }
 
     function valueMinus()  {
-       if (number >= 2) {
+       if (number >= 1) {
          number--;
          quantityNum.value = number;
       }
