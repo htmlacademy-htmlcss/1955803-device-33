@@ -159,6 +159,7 @@ serviceBtn.forEach((element, index) => {
 /* Del item*/
 function getActiveCartItems(n) {
   cartItems[n].remove();
+  // cartNumber();
 
 }
 
@@ -166,6 +167,8 @@ function getActiveCartItems(n) {
 popoverBtn.forEach((element, index) => {
   element.addEventListener("click", () => {
     getActiveCartItems(index);
+
     });
  })
+
 
