@@ -148,3 +148,24 @@ serviceBtn.forEach((element, index) => {
   };
 
 
+  // POPOVER
+  const popover = document.querySelector(".popover-cart");
+  const popoverBtn = document.querySelectorAll(".popover-cart-item-btn");
+  const cartItems =  document.querySelectorAll(".popover-cart-item");
+  const cartItemsNumber = document.getElementById("popover-cart-number");
+  const cartItemsSum = document.getElementById("popover-cart-sum");
+
+
+/* Del item*/
+function getActiveCartItems(n) {
+  cartItems[n].remove();
+
+}
+
+/*Choosing del item*/
+popoverBtn.forEach((element, index) => {
+  element.addEventListener("click", () => {
+    getActiveCartItems(index);
+    });
+ })
+
