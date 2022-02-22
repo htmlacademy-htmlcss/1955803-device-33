@@ -433,7 +433,7 @@ img {
   display: flex;
   flex: 1 0 49.7%;
 }
-.form-search::before {
+.form-search::after {
   content: "";
   position: absolute;
   display: block;
@@ -443,7 +443,10 @@ img {
   left: 16px;
   background: url(../images/icon/header/loupe.svg) no-repeat center;
 }
-
+.form-search--disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
 .input-search {
   border: 2px solid var(--basic-black);
   min-height: 40px;
@@ -467,6 +470,7 @@ img {
   outline: 2px solid var(--additional-violet);
   outline-offset: 2px;
 }
+
 /* NAVIGATION */
 .user-nav-list {
   display: flex;
@@ -2056,6 +2060,8 @@ img {
   background: var(--additional-yellow) url(../images/icon/delivery/info.svg)
     no-repeat center;
   margin-left: 8px;
+  border: none;
+  cursor: pointer;
 }
 .number-product-info:hover + .number-product-info-text,
 .number-product-info:focus + .number-product-info-text {
@@ -2141,11 +2147,12 @@ img {
   margin: 0px;
   background-color: var(--basic-black);
   color: var(--basic-white);
-  z-index: 10;
   right: 6px;
   opacity: 0;
   visibility: hidden;
   z-index: 15;
+  font-size: 16px;
+  line-height: 20px;
 }
 .popover-cart::before {
   content: "";
@@ -2257,13 +2264,13 @@ img {
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   font-size: 18px;
-  line-height: 10px;
+  line-height: 21px;
   text-align: center;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--basic-black);
-  padding: 20px;
+  padding: 15px 20px;
   background-color: var(--basic-white);
 }
 .popover-cart-link:hover {
