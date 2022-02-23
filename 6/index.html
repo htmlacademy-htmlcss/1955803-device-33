@@ -40,30 +40,27 @@
                 name="search"
                 id="search"
                 placeholder="Поиск по сайту"
-                value="Текст поиска"
               />
 
               <button class="btn-search" type="submit">Найти</button>
             </form>
             <ul class="user-nav-list">
               <li class="user-nav-item user-nav-item--login">
-                <a class="user-nav-link user-nav-link--login" href="#">
-                  <span class="user-icon"></span>
+                <a
+                  class="user-nav-link user-nav-link-user user-nav-link--login"
+                  href="#"
+                >
                   Войти
                 </a>
               </li>
               <li class="user-nav-item">
-                <a class="user-nav-link" href="#">
-                  <span class="compare-icon"></span>
+                <a class="user-nav-link user-nav-link-compare" href="#">
                   Сравнить
                 </a>
               </li>
               <li class="user-nav-item user-nav-item-cart">
-                <a class="user-nav-link" href="#">
-                  <div class="cart">
-                    <span class="cart-counter">2</span>
-                    <span class="cart-icon"></span>
-                  </div>
+                <a class="user-nav-link user-nav-link-cart" href="#">
+                  <span class="cart-counter">2</span>
                   Корзина
                 </a>
                 <!-- !POPOVER-CART-->
@@ -765,7 +762,10 @@
                     <label class="modal-label" for="number-product">
                       Количество:
                     </label>
-                    <a class="number-product-info" href="#info-text"></a>
+                    <button
+                      class="number-product-info"
+                      href="#info-text"
+                    ></button>
 
                     <p class="number-product-info-text" id="info-text">
                       Постараемся найти, сколько нужно. Привезём только 5,

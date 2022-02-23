@@ -1,11 +1,10 @@
 
 // BTN CATALOG TOGGLE
 const btnToggleCatalog = document.querySelector(".catalog-toggler-btn");
-const catalogNav = document.querySelector(".catalog-toggler-nav");
 
 // BTN CATALOG ACTION
 btnToggleCatalog.addEventListener("click", clickBtnCatalog);
-function clickBtnCatalog(evt){
+function clickBtnCatalog(){
   btnToggleCatalog.classList.toggle("active");
 }
 
@@ -15,6 +14,7 @@ const btnSliderNext = document.querySelector(".slider-btn-next");
 const slides = document.querySelectorAll(".slide");
 const sliderCounter = document.querySelector(".slider-counter");
 const btnSliderPagination = document.querySelectorAll(".slider-pagination-btn");
+let slideIndex;
 
 /* Index of the current element */
 function getActiveSlideIndex() {
@@ -45,7 +45,7 @@ btnSliderPagination.forEach((element, index) => {
 
 /*Choosing the next slide*/
 function setSlide(n) {
-  slideIndex = (n + slides.length) % slides.length;
+   slideIndex = (n + slides.length) % slides.length;
   setActiveSlideElement();
   updateSlideText();
   setActiveSlideDot();
@@ -76,7 +76,7 @@ function setActiveSlideElement(){
 const serviceItem = document.querySelectorAll(".services-nav-item");
 const serviceBtn = document.querySelectorAll(".services-nav-btn");
 const serviceDesc = document.querySelectorAll(".services-desc-item");
-
+let serviceIndex;
 /*Choosing the next item*/
 function showService(n) {
   serviceIndex = (n + serviceItem.length) % serviceItem.length;
@@ -149,12 +149,8 @@ serviceBtn.forEach((element, index) => {
 
 
   // POPOVER
-  const popover = document.querySelector(".popover-cart");
   const popoverBtn = document.querySelectorAll(".popover-cart-item-btn");
   const cartItems =  document.querySelectorAll(".popover-cart-item");
-  const cartItemsNumber = document.getElementById("popover-cart-number");
-  const cartItemsSum = document.getElementById("popover-cart-sum");
-
 
 /* Del item*/
 function getActiveCartItems(n) {

@@ -433,7 +433,7 @@ img {
   display: flex;
   flex: 1 0 49.7%;
 }
-.form-search::before {
+.form-search::after {
   content: "";
   position: absolute;
   display: block;
@@ -443,7 +443,10 @@ img {
   left: 16px;
   background: url(../images/icon/header/loupe.svg) no-repeat center;
 }
-
+.form-search--disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
 .input-search {
   border: 2px solid var(--basic-black);
   min-height: 40px;
@@ -467,6 +470,7 @@ img {
   outline: 2px solid var(--additional-violet);
   outline-offset: 2px;
 }
+
 /* NAVIGATION */
 .user-nav-list {
   display: flex;
@@ -528,43 +532,41 @@ img {
 .user-nav-link--logout {
   opacity: 0.3;
 }
-
-.user-icon,
-.compare-icon,
-.cart-icon {
+.user-nav-link-cart {
+  position: relative;
+}
+.user-nav-link-user::before,
+.user-nav-link-compare::before,
+.user-nav-link-cart::before {
+  content: "";
   display: block;
   margin-right: 12px;
 }
-.user-icon {
-  min-width: 15px;
+.user-nav-link-user::before {
+  width: 15px;
   height: 12px;
   background: url(../images/icon/header/user.svg) no-repeat center;
 }
-.compare-icon {
-  min-width: 10px;
+.user-nav-link-compare::before {
+  width: 10px;
   height: 12px;
   background: url(../images/icon/header/compare.svg) no-repeat center;
 }
-.cart {
-  display: flex;
-  align-items: baseline;
-  width: 31px;
-  margin-right: 14px;
-}
-.cart-icon {
-  min-width: 16px;
-  min-height: 14px;
+
+.user-nav-link-cart::before {
+  position: absolute;
+  left: 20px;
+  width: 16px;
+  height: 14px;
   background: url(../images/icon/header/cart.svg) no-repeat center;
   margin: 0px;
   transform: translate(-5px, -1px);
+  margin: 0px;
 }
 
 .cart-counter {
-  flex-shrink: 0;
   position: relative;
   z-index: 2;
-  top: -2px;
-  left: 1px;
   width: 21px;
   height: 21px;
   font-size: 14px;
@@ -574,6 +576,7 @@ img {
   background-color: var(--basic-white);
   border-radius: 50%;
   overflow: hidden;
+  margin-right: 22px;
 }
 
 .main-nav {
@@ -2057,6 +2060,8 @@ img {
   background: var(--additional-yellow) url(../images/icon/delivery/info.svg)
     no-repeat center;
   margin-left: 8px;
+  border: none;
+  cursor: pointer;
 }
 .number-product-info:hover + .number-product-info-text,
 .number-product-info:focus + .number-product-info-text {
@@ -2142,10 +2147,12 @@ img {
   margin: 0px;
   background-color: var(--basic-black);
   color: var(--basic-white);
-  z-index: 10;
   right: 6px;
   opacity: 0;
   visibility: hidden;
+  z-index: 15;
+  font-size: 16px;
+  line-height: 20px;
 }
 .popover-cart::before {
   content: "";
@@ -2165,26 +2172,38 @@ img {
   list-style-type: none;
 }
 .popover-cart-item {
-  display: inline-flex;
-  justify-content: space-between;
+  display: flex;
   padding: 20px;
 }
 .popover-cart-item:not(:last-child) {
   border-bottom: 1px solid var(--alfa1-white);
 }
+
 .popover-cart-item-link {
   text-decoration: none;
   color: var(--basic-white);
   display: inline-flex;
   align-items: center;
-  flex: 0 1 150px;
+  margin-right: auto;
 }
 .popover-cart-item-link img {
   margin-right: 23px;
 }
+.popover-cart-item-link:hover {
+  opacity: 0.6;
+}
+.popover-cart-item-link:active {
+  opacity: 0.3;
+}
+.popover-cart-item-link:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid var(--additional-violet);
+}
 .popover-cart-item-title {
   margin: 0px;
   line-height: 20px;
+  display: inline-flex;
+  max-width: fit-content;
 }
 .popover-btn-wrap {
   padding: 20px;
@@ -2225,6 +2244,7 @@ img {
 }
 .popover-cart-info {
   display: flex;
+  flex-wrap: wrap;
   background-color: var(--popover-info);
   margin: 0px;
   padding: 15px 20px;
@@ -2244,20 +2264,23 @@ img {
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   font-size: 18px;
-  line-height: 10px;
+  line-height: 21px;
   text-align: center;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--basic-black);
-  padding: 20px;
+  padding: 15px 20px;
   background-color: var(--basic-white);
 }
 .popover-cart-link:hover {
-  opacity: 0.6;
+  background-color: var(--additional-yellow);
 }
 .popover-cart-link:active {
-  opacity: 0.3;
+  color: var(--alfa3-black);
+}
+.popover-cart-link:disabled {
+  color: var(--alfa3-black);
 }
 .popover-cart-link:focus-visible {
   outline-offset: 2px;
