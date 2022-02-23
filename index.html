@@ -39,29 +39,92 @@
                 name="search"
                 id="search"
                 placeholder="Поиск по сайту"
-                value="Текст поиска"
               />
 
               <button class="btn-search" type="submit">Найти</button>
             </form>
             <ul class="user-nav-list">
               <li class="user-nav-item user-nav-item--login">
-                <a class="user-nav-link user-nav-link--login" href="#">
-                  <span class="user-icon"></span>
+                <a
+                  class="user-nav-link user-nav-link-user user-nav-link--login"
+                  href="#"
+                >
                   Войти
                 </a>
               </li>
               <li class="user-nav-item">
-                <a class="user-nav-link" href="#">
-                  <span class="compare-icon"></span>
+                <a class="user-nav-link user-nav-link-compare" href="#">
                   Сравнить
                 </a>
               </li>
-              <li class="user-nav-item">
-                <a class="user-nav-link" href="#">
-                  <span class="cart-icon"></span>
+              <li class="user-nav-item user-nav-item-cart">
+                <a class="user-nav-link user-nav-link-cart" href="#">
+                  <span class="cart-counter">2</span>
                   Корзина
                 </a>
+                <!-- !POPOVER-CART-->
+                <div class="popover-cart">
+                  <ul class="popover-cart-list">
+                    <li class="popover-cart-item">
+                      <a class="popover-cart-item-link" href="#">
+                        <img
+                          src="images/product/for-cart/product-1-small.jpg"
+                          alt=""
+                          width="39"
+                          height="44"
+                        />
+                        <p class="popover-cart-item-title">
+                          Любительская селфи-палка
+                        </p>
+                      </a>
+                      <button
+                        class="popover-cart-item-btn"
+                        type="button"
+                      ></button>
+                    </li>
+                    <li class="popover-cart-item">
+                      <a class="popover-cart-item-link" href="#">
+                        <img
+                          src="images/product/for-cart/product-2-small.jpg"
+                          alt=""
+                          width="39"
+                          height="44"
+                        />
+                        <p class="popover-cart-item-title">
+                          Профессиональная селфи-палка
+                        </p>
+                      </a>
+                      <button
+                        class="popover-cart-item-btn"
+                        type="button"
+                      ></button>
+                    </li>
+                  </ul>
+
+                  <dl class="popover-cart-info">
+                    <div class="popover-cart-info-wrap">
+                      <dt class="popover-cart-info-title">Товаров:</dt>
+                      <dd
+                        class="popover-cart-info-subtitle"
+                        id="popover-cart-number"
+                      >
+                        2
+                      </dd>
+                    </div>
+                    <div class="popover-cart-info-wrap">
+                      <dt class="popover-cart-info-title">Сумма:</dt>
+                      <dd
+                        class="popover-cart-info-subtitle"
+                        id="popover-cart-sum"
+                      >
+                        2000 &#8381;
+                      </dd>
+                    </div>
+                  </dl>
+                  <div class="popover-btn-wrap">
+                    <a class="popover-cart-link" href="#">Открыть корзину</a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
@@ -125,39 +188,6 @@
         <section class="preview">
           <h2 class="visually-hidden">Превью устройства</h2>
           <div class="preview-wrap">
-            <div class="preview-controls">
-              <div class="slider-btn-control">
-                <button class="slider-btn-prev">
-                  <span class="visually-hidden">Предыдущий</span>
-                </button>
-                <button class="slider-btn-next">
-                  <span class="visually-hidden">Следующий</span>
-                </button>
-              </div>
-              <div class="slider-counter-control">
-                <span class="slider-counter">01</span>
-                <ul class="slider-content-pagination">
-                  <li class="slider-pagination-item">
-                    <button
-                      class="slider-pagination-btn slider-pagination-btn--current"
-                      type="button"
-                    >
-                      <span class="visually-hidden">1 фото</span>
-                    </button>
-                  </li>
-                  <li class="slider-pagination-item">
-                    <button class="slider-pagination-btn" type="button">
-                      <span class="visually-hidden">2 фото</span>
-                    </button>
-                  </li>
-                  <li class="slider-pagination-item">
-                    <button class="slider-pagination-btn" type="button">
-                      <span class="visually-hidden">3 фото</span>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
             <div class="wrap-slide">
               <div class="slide slide--show">
                 <div class="slide-img">
@@ -181,16 +211,16 @@
                     <ul class="property-device-list">
                       <li class="property-device-item">
                         <b class="property-device-name">800 м</b>
-                        <span class="property-device-desc"
-                          >Дальность полета</span
-                        >
+                        <span class="property-device-desc">
+                          Дальность полета
+                        </span>
                       </li>
 
                       <li class="property-device-item">
                         <b class="property-device-name">50 м</b>
-                        <span class="property-device-desc"
-                          >Радиус поражения</span
-                        >
+                        <span class="property-device-desc">
+                          Радиус поражения
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -263,6 +293,39 @@
                 </div>
               </div>
             </div>
+            <div class="preview-controls">
+              <div class="slider-btn-control">
+                <button class="slider-btn-prev">
+                  <span class="visually-hidden">Предыдущий</span>
+                </button>
+                <button class="slider-btn-next">
+                  <span class="visually-hidden">Следующий</span>
+                </button>
+              </div>
+              <div class="slider-counter-control">
+                <span class="slider-counter">01</span>
+                <ul class="slider-content-pagination">
+                  <li class="slider-pagination-item">
+                    <button
+                      class="slider-pagination-btn slider-pagination-btn--current"
+                      type="button"
+                    >
+                      <span class="visually-hidden">1 фото</span>
+                    </button>
+                  </li>
+                  <li class="slider-pagination-item">
+                    <button class="slider-pagination-btn" type="button">
+                      <span class="visually-hidden">2 фото</span>
+                    </button>
+                  </li>
+                  <li class="slider-pagination-item">
+                    <button class="slider-pagination-btn" type="button">
+                      <span class="visually-hidden">3 фото</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -277,6 +340,8 @@
                   class="category-item-img"
                   src="images/category/category-1.svg"
                   alt="Виртуальная реальность."
+                  width="160"
+                  height="160"
                 />
                 <h3 class="category-item-title">Виртуальная реальность</h3>
               </a>
@@ -287,6 +352,8 @@
                   class="category-item-img"
                   src="images/category/category-2.svg"
                   alt="Моноподы для селфи."
+                  width="160"
+                  height="160"
                 />
                 <h3 class="category-item-title">Моноподы <br />для селфи</h3>
               </a>
@@ -297,6 +364,8 @@
                   class="category-item-img"
                   src="images/category/category-3.svg"
                   alt="Экшн-камеры."
+                  width="160"
+                  height="160"
                 />
                 <h3 class="category-item-title">Экшн-камеры</h3>
               </a>
@@ -307,6 +376,8 @@
                   class="category-item-img"
                   src="images/category/category-4.svg"
                   alt="Фитнес-браслеты."
+                  width="160"
+                  height="160"
                 />
                 <h3 class="category-item-title">Фитнес-браслеты</h3>
               </a>
@@ -317,6 +388,8 @@
                   class="category-item-img"
                   src="images/category/category-5.svg"
                   alt="Умные часы."
+                  width="160"
+                  height="160"
                 />
                 <h3 class="category-item-title">Умные часы</h3>
               </a>
@@ -327,6 +400,8 @@
                   class="category-item-img"
                   src="images/category/category-6.svg"
                   alt="Квадрокоптеры."
+                  width="160"
+                  height="160"
                 />
                 <h3 class="category-item-title">Квадрокоптеры</h3>
               </a>
@@ -364,8 +439,8 @@
                 <h2 class="services-desc-item-title title">Доставка</h2>
                 <p class="services-desc-text">
                   Мы с удовольствием доставим ваш товар прямо <br />
-                  к вашему подъезду совершенно бесплатно! Ведь <br />
-                  мы неплохо заработаем, поднимая его на ваш этаж.
+                  к вашему подъезду совершенно бесплатно! Ведь мы неплохо
+                  заработаем, поднимая его на ваш этаж.
                 </p>
               </div>
 
@@ -686,9 +761,12 @@
                     <label class="modal-label" for="number-product">
                       Количество:
                     </label>
-                    <span class="number-product-info"></span>
+                    <button
+                      class="number-product-info"
+                      href="#info-text"
+                    ></button>
 
-                    <p class="number-product-info-text">
+                    <p class="number-product-info-text" id="info-text">
                       Постараемся найти, сколько нужно. Привезём только 5,
                       больше всё равно нет.
                     </p>
@@ -699,10 +777,11 @@
                     </button>
                     <input
                       class="modal-input modal-input-number"
-                      type="text"
+                      type="number"
                       name="number-product"
                       id="number-product"
-                      value="1"
+                      value="0"
+                      min="1"
                     />
                     <button class="number-product-plus" type="button">
                       <span class="visually-hidden">Прибавить</span>
