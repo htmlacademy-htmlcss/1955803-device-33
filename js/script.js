@@ -63,6 +63,7 @@ function setActiveSlideDot(){
   }
   btnSliderPagination[slideIndex].classList.add("slider-pagination-btn--current");
 }
+
 /*Chooses an active slide*/
 function setActiveSlideElement(){
   for (let slide of slides) {
@@ -77,12 +78,14 @@ const serviceItem = document.querySelectorAll(".services-nav-item");
 const serviceBtn = document.querySelectorAll(".services-nav-btn");
 const serviceDesc = document.querySelectorAll(".services-desc-item");
 let serviceIndex;
+
 /*Choosing the next item*/
 function showService(n) {
   serviceIndex = (n + serviceItem.length) % serviceItem.length;
   setActiveServiceItem();
 setActiveServiceBtn();
 }
+
 /*Chooses an active item*/
 function setActiveServiceItem(){
   for (let desc of serviceDesc) {
@@ -90,6 +93,7 @@ function setActiveServiceItem(){
 }
 serviceDesc[serviceIndex].classList.add("service--show");
 }
+
 /*Chooses an active btn*/
 function setActiveServiceBtn(){
 for (let service of serviceItem) {
@@ -97,12 +101,14 @@ for (let service of serviceItem) {
 }
 serviceItem[serviceIndex].classList.add("services-nav-item--active");
 }
+
 /* Swipe btns*/
 serviceBtn.forEach((element, index) => {
   element.addEventListener("click", () => {
     showService(index);
     });
  })
+
 
  // POPUP
  const btnDelivery = document.querySelector(".delivery");
@@ -122,6 +128,7 @@ serviceBtn.forEach((element, index) => {
     body.classList.toggle("lock");
    popup.classList.toggle("open");
  }});
+
 
   // POPUP COUNTER
     const quantityMinus = document.querySelector(".number-product-minus");
@@ -155,16 +162,13 @@ serviceBtn.forEach((element, index) => {
 /* Del item*/
 function getActiveCartItems(n) {
   cartItems[n].remove();
-  // cartNumber();
-
 }
 
 /*Choosing del item*/
 popoverBtn.forEach((element, index) => {
   element.addEventListener("click", () => {
     getActiveCartItems(index);
-
     });
- })
+ });
 
 
